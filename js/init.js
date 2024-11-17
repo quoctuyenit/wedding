@@ -44,23 +44,4 @@ $(document).ready(function() {
         });
     }
     loadDataWish();
-
-    function loadDataAlbum() {
-        let htmlAlbum = '';
-        for (let number = 1; number <= 40; number++) {
-            let urlImg = 'https://tuyenit.s3.us-east-2.amazonaws.com/img/album/MIN_' + number.toString().padStart(4, '0') + '.jpg';
-            htmlAlbum = htmlAlbum
-                + `<div class="grid grid-item btn-see-more-gallery" data-index="0"
-                    style="position: absolute; left: 0%; top: 0px;">
-                    <img src="` + urlImg + `" alt="" class="img img-responsive">
-                </div>`;
-            photoGalleries.push({
-                src: urlImg,
-                thumb: urlImg,
-                subHtml: ``
-            });
-        }
-        $('#gallery').find('.gallery-container').html(htmlAlbum);
-    }
-    loadDataAlbum();
 });

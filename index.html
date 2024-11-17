@@ -81,7 +81,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <a href="/#hero" class="nav-logo d-flex align-items-center h-100">
+                                    <a href="./#hero" class="nav-logo d-flex align-items-center h-100">
                                         <h1 style="font-size:25px">T<span class="main-color"><i class="fa fa-heart"
                                                     style="margin:5px 5px 5px 10px;"></i></span>H</h1>
                                     </a>
@@ -90,15 +90,15 @@
                                     <nav class="navbar">
 
                                         <ul class="nav navbar-nav">
-                                            <li><a href="/#couple" class="active">Cặp
+                                            <li><a href="./#couple" class="active">Cặp
                                                     đôi</a></li>
 
-                                            <li><a href="/#story">Chuyện tình yêu</a></li>
+                                            <li><a href="./#story">Chuyện tình yêu</a></li>
 
-                                            <li><a href="/#gallery">Album Hình Cưới</a>
+                                            <li><a href="./#gallery">Album Hình Cưới</a>
                                             </li>
 
-                                            <li><a href="/#rsvp">Sổ Lưu Bút</a></li>
+                                            <li><a href="./#rsvp">Sổ Lưu Bút</a></li>
                                         </ul>
 
                                         <button id="nav-mobile-btn"><i class="fas fa-bars"></i></button><!-- Mobile menu button -->
@@ -151,7 +151,7 @@
 
                             <div data-animation-direction="fade" data-animation-delay="1000"
                                 class="animate-fade animation-fade">
-                                <a href="/#rsvp" class="btn btn-light scrollto" style="width: 214px;"><span
+                                <a href="./#rsvp" class="btn btn-light scrollto" style="width: 214px;"><span
                                         class="h-lines"></span><span class="v-lines"></span>Gửi
                                     lời chúc</a>
                             </div>
@@ -421,25 +421,25 @@
                                 <div>Một lời chúc của bạn chắc chắn sẽ làm cho đám cưới của chúng tôi có thêm một niềm
                                     hạnh phúc!</div>
                                 <div class="center m-0 mt-2">
-                                    <a href="/#rsvp" class="btn btn-primary reverse scrollto text-white px-2"
+                                    <a href="./#rsvp" class="btn btn-primary reverse scrollto text-white px-2"
                                         style="min-width: 240px; max-width: 240px; width: 255px;"><span
                                             class="h-lines"></span><span class="v-lines"></span>Gửi lời chúc</a>
                                 </div>
                                 <div class="date">30 Tháng 11 2024</div>
                                 <div class="count-down-clock">
-                                    <div id="clock" data-date="2024-04-04" data-text-day="Ngày" data-text-hour="Giờ"
+                                    <div id="clock" data-date="2024-11-30" data-text-day="Ngày" data-text-hour="Giờ"
                                         data-text-minute="Phút" data-text-second="Giây">
                                         <div class="box">
-                                            <div>192</div> <span>Ngày</span>
+                                            <div>1</div> <span>Ngày</span>
                                         </div>
                                         <div class="box">
-                                            <div>17</div> <span>Giờ</span>
+                                            <div>1</div> <span>Giờ</span>
                                         </div>
                                         <div class="box">
-                                            <div>35</div> <span>Phút</span>
+                                            <div>1</div> <span>Phút</span>
                                         </div>
                                         <div class="box">
-                                            <div>49</div> <span>Giây</span>
+                                            <div>1</div> <span>Giây</span>
                                         </div>
                                     </div>
                                 </div>
@@ -463,7 +463,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
-                        <div class="gallery-container gallery-fancybox masonry-gallery"
+                        <div id="id-gallery-container" class="gallery-container gallery-fancybox masonry-gallery"
                             style="position: relative; height: 2283.66px;">
                         </div>
                     </div>
@@ -471,6 +471,33 @@
 
             </div>
         </section>
+
+        <script>
+            function loadDataAlbum() {
+                let htmlAlbum = '';
+                for (let number = 1; number <= 10; number++) {
+                    let urlImg = 'https://tuyenit.s3.us-east-2.amazonaws.com/img/album/MIN_' + number.toString().padStart(4, '0');
+                    let urlImgSmall =  urlImg + '_small.jpg';
+                    urlImg = urlImg + '.jpg';
+                    let modIndex = number % 4;
+                    let left = modIndex == 1 ? 0 : (modIndex == 2 ? 33.2571 : 66.5904);
+                    let top = Math.floor(number / 4) * 235;
+                    htmlAlbum = htmlAlbum
+                        + `<div class="grid grid-item btn-see-more-gallery" data-index="` + number + `"
+                            style="position: absolute; left: ` + left + `%; top: ` + top + `px;">
+                            <img src="` + urlImgSmall + `" alt="" class="img img-responsive">
+                        </div>`;
+                    photoGalleries.push({
+                        src: urlImgSmall,
+                        thumb: urlImgSmall,
+                        subHtml: ``
+                    });
+                }
+                // $('#gallery').find('.gallery-container').html(htmlAlbum);
+                document.getElementById('id-gallery-container').innerHTML = htmlAlbum;
+            }
+            loadDataAlbum();
+        </script>
         <!-- END GALLERY SECTION -->
 
         <section id="invitation" class="parallax-background bg-color-overlay padding-divider-top"
