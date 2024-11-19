@@ -2436,12 +2436,12 @@ class Picker extends SvelteComponent {
 	}
 }
 
-const DEFAULT_DATA_SOURCE = '/common/emoji-picker/js/data.json';
+const DEFAULT_DATA_SOURCE = '../common/emoji-picker/js/data.json';
 const DEFAULT_LOCALE = 'en';
 
 var enI18n = {
   categoriesLabel: 'Categories',
-  emojiUnsupportedMessage: 'Your browser does /static/libs/emoji-pickerhttps://test.biihappy.com/static/libs/emo ji-picker/static/libs/emoji-picker/static/libs/emo ji-picker/static/libs/emoji-picker/not oji.',
+  emojiUnsupportedMessage: 'Your browser does not oji.',
   favoritesLabel: 'Favorites',
   loadingMessage: 'Loading…',
   networkErrorMessage: 'Could not load emoji.',
