@@ -39,12 +39,13 @@ $(document).ready(function() {
                 }
             });
             $('#wrapper').find('.wish-box').html(html);
-            $('#preloader').hide();
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-            $('#preloader').hide();
         });
     }
     loadDataWish();
+    document.addEventListener("DOMContentLoaded", function () {
+        $('#preloader').hide();
+    });
 });
