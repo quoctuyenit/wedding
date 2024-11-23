@@ -463,10 +463,19 @@
         </section>
 
         <script>
+            function randomCustom(arrAdded) {
+                let randomNumber = null;
+                do {
+                    randomNumber = Math.floor(Math.random() * 40) + 1;
+                } while (arrAdded.includes(randomNumber))
+                return randomNumber;
+            }
             function loadDataAlbum() {
                 let htmlAlbum = '';
+                let arrAdded = [];
                 for (let number = 1; number <= 12; number++) {
-                    let randomNumber = Math.floor(Math.random() * 40) + 1;
+                    let randomNumber = randomCustom(arrAdded);
+                    arrAdded.push(randomNumber);
                     let urlImg = 'https://tuyenit.s3.us-east-2.amazonaws.com/img/album/MIN_' + randomNumber.toString().padStart(4, '0');
                     let urlImgSmall =  urlImg + '_small.jpg';
                     urlImg = urlImg + '.jpg';
