@@ -1,5 +1,6 @@
 import '../common/emoji-picker/js/index.js'
 $(".textarea-emoji-picker emoji-picker").dataSource = './common/emoji-picker/js/data.json';
+$('#preloader').show();
 $(document).ready(function() {
     $(document).on('emoji-click', '.textarea-emoji-picker emoji-picker', function(e){
         let formInput = $(this).parents('.textarea-emoji-picker').find("textarea");
@@ -38,9 +39,11 @@ $(document).ready(function() {
                 }
             });
             $('#wrapper').find('.wish-box').html(html);
+            $('#preloader').hide();
         })
         .catch(error => {
             console.error('Error fetching data:', error);
+            $('#preloader').hide();
         });
     }
     loadDataWish();
